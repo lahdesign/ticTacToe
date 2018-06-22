@@ -1,9 +1,9 @@
 //create a blank board
 
 let board = [
-  [null, null, null]
-  [null, null, null]
-  [null, null, null]
+  ['', '', '']
+  ['', '', '']
+  ['', '', '']
 ]
 
 let row 0 =

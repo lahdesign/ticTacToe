@@ -9,3 +9,20 @@
 $(() => {
   // your JS code goes here
 })
+
+'use strict'
+
+const getFormFields = require('../../lib/get-form-fields')
+const api = require('./api')
+const ui = require('./ui')
+
+$(() => {
+  $('#my-form').on('submit', function (e) {
+    let data = getFormFields(this)
+    e.preventDefault()
+    api.myRequest(data)
+      .then(ui.success)
+      .catch(ui.failure)
+  })
+})
+```
