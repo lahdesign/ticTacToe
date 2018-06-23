@@ -1,5 +1,4 @@
 'use strict'
-'use strict'
 
 const config = require('../config')
 const store = require('../store')
@@ -81,5 +80,4 @@ module.exports = {
 // }
 
 // module.exports = {
-//   myRequest
-}
+//   myRequest }

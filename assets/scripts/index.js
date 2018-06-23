@@ -1,4 +1,7 @@
 'use strict'
+const getFormFields = require('../../lib/get-form-fields')
+const api = require('./ticTacToe/api')
+const ui = require('./ticTacToe/ui')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -7,22 +10,11 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
-})
-
-'use strict'
-
-const getFormFields = require('../../lib/get-form-fields')
-const api = require('./ticTacToe/api')
-const ui = require('./ticTacToe/ui')
-
-$(() => {
   $('#my-form').on('submit', function (e) {
     let data = getFormFields(this)
     e.preventDefault()
     api.myRequest(data)
       .then(ui.success)
       .catch(ui.failure)
-  })
 })
-```
+})
