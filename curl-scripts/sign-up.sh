@@ -1,9 +1,13 @@
-# sh curl-scripts/json/sign-up.sh
+# EMAIL="test" PASSWORD="12345" PASSWORD_CONFIRMATION="12345" sh curl-scripts/sign-up.sh
 
-curl "https://wdi-library-api.herokuapp.com/sign-up" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --data ''
-
-echo
+  --data '{
+    "credentials": {
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'",
+      "password_confirmation": "'"${PASSWORD_CONFIRMATION}"'"
+    }
+  }'

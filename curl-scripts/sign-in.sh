@@ -1,12 +1,14 @@
-# sh curl-scripts/json/sign-in.sh
+# sh curl-scripts/sign-in.sh
 
-curl 'https://tic-tac-toe-wdi.herokuapp.com/' \
+  curl "https://tic-tac-toe-wdi.herokuapp.com/sign-in" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --data ''
+  --data '{
+    "credentials": {
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'"
+    }
+  }'
 
 echo
-
-# // production: 'https://aqueous-atoll-85096.herokuapp.com',
-# // development: 'https://tic-tac-toe-wdi.herokuapp.com/'
