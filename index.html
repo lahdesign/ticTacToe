@@ -92,23 +92,28 @@
         </fieldset>
       </form>
 
-      <table id="board">
+      <table id="board" width='100%'>
         <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
+        <td id="0" class="gameButtons">0</td>
+        <td id="1" class="gameButtons">1</td>
+        <td id="2" class="gameButtons">2</td>
           </tr>
         <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
+        <td id="3" class="gameButtons">3</td>
+        <td id="4" class="gameButtons">4</td>
+        <td id="5" class="gameButtons">5</td>
           </tr>
         <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
+        <td id="6" class="gameButtons">6</td>
+        <td id="7" class="gameButtons">7</td>
+        <td id="8" class="gameButtons">8</td>
           </tr>
         </table>
+
+        <button name="NewGame"
+                class="newGame"
+                value="Start a New Game"
+                onClick="fnNewGame()">Start a New Game</button>
 
     </body>
 </html>
