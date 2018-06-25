@@ -9,14 +9,42 @@ const game = require('./ticTacToe/game')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-const gameBoard = []
-let isPlayerXTurn = true
+
 
 $(() => {
+  const gameBoard = []
+  let isPlayerXTurn = true
+
+  $('.gameButtons').click(function (event) {
+    event.preventDefault()
+    if (isPlayerXTurn) {
+      gameBoard[event.target.id] = 'X'
+      $(this).addClass('ximage')
+    } else {
+      gameBoard[event.target.id] = 'O'
+      $(this).addClass('oimage')
+    }
+    isPlayerXTurn = !isPlayerXTurn
+    console.log(gameBoard)
+  })
 })
 
-// // a function that draws a board
-// let drawBoard = []
+checkIfWinner = function () {
+  if ( (this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2])
+    || (this.gameBoard[3] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[5])
+    || (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8])
+    || (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[3] === this.gameBoard[6])
+    || (this.gameBoard[1] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[7])
+    || (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8])
+    || (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8])
+    || (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6])  ) {
+
+    if (displayerXTurn) {
+      alert (playerx);
+    } else {
+      alert (playero);
+    };
+
 
 // module.exports = {
 //   startGame
@@ -25,13 +53,11 @@ $(() => {
 // (function() {
 // 	let game = {
 
-//   startGame: function() {
-//     count = 0;
-//     isPlayerXTurn = true,
-//     gameBoardState = [null, 1,2,3,4,5,6,7,8,9],
-
-// },
-
+// startGame: function() {
+//   count = 0;
+//   isPlayerXTurn = true,
+//   gameBoardState = [null, 0,1,2,3,4,5,6,7,8],
+// })
 //  endGame: function() {
 // },
 
@@ -44,18 +70,6 @@ $(() => {
 // checkIfAvailable: function() {
 // checkIfWinner: function() {
 // checkIfWinner: function() {
-// winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
 // checkIfGameInSession: function() {
-// checkIfTie: function() {
-
-$('.gameButtons').click((event) => {
-  event.preventDefault()
-  if (isPlayerXTurn) {
-    gameBoard[event.target.id] = "X"
-  } else {
-    gameBoard[event.target.id] = "O"
-  }
-  isPlayerXTurn = !isPlayerXTurn
-  console.log(gameBoard)
-
-})
+// checkIfTie: function() {}

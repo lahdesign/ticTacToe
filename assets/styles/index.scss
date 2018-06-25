@@ -13,6 +13,19 @@ td:after {
   display: block;
   margin-top: 100%;
 }
+
+.ximage {
+  background-image: url('../../images/x.jpg');
+  border-color: yellow;
+  background-size: cover;
+}
+
+.oimage {
+  background-image: url('../../images/o.jpg');
+  background-size: cover;
+}
+// yimage
+
 // div {
 //   display:inline-block;
 //   border and
