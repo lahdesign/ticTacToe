@@ -9,49 +9,32 @@ const game = require('./ticTacToe/game')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-
-//TODO make an instance of game using constructor function
-
 $(() => {
-
-  const Game = function() {
-      this.count = 0
-      let PlayerXTurn = true
-      this.gameBoard = []
-      this.gameOn = true
-  }
-  Game.prototype.startGame = function() {
+  const Game = function () {
+    this.count = 0
     this.gameOn = true
+    this.playerXTurn = true
+    this.gameBoard = []
   }
-  // const game = new Game()
-  // gives game all of the starter principles
-
-  game.startGame()
-
-  // claim spot function
-  $('.gameButtons').click(function (event) {
-    event.preventDefault()
-    if (PlayerXTurn) {
-      gameBoard[event.target.id] = 'X'
-      $(this).addClass('ximage')
-      game.count++
-    } else {
-      gameBoard[event.target.id] = 'O'
-      $(this).addClass('oimage')
-    }
-    PlayerXTurn = !PlayerXTurn
-    count++
-    console.log(gameBoard)
-    alert(event)
-
-    // Is that the correct place to do count++ here
-  })
-}
-  // TODO - how do these things go somewhere other than the console log? Get saved in an array that can get fed to
-  // the check if winner function, check if tie
-  // function to check if winner
-
-  const checkIfWinner = function (gameBoard) {
+  Game.prototype.playGame = function () {
+    $('.gameButtons').click(function (event, playerXTurn, gameBoard, count) {
+      event.preventDefault()
+      if (playerXTurn) {
+        gameBoard[event.target.id] = 'X'
+        $(this).addClass('xImage')
+        this.game.count++
+      } else {
+        gameBoard[event.target.id] = 'O'
+        $(this).addClass('oImage')
+        this.game.count++
+      }
+      playerXTurn = !playerXTurn
+      count++
+      console.log(gameBoard)
+      alert(event)
+    })
+  }
+  Game.prototype.checkIfWinner = function (gameBoard, playerXTurn) {
     if ((this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2]) ||
         (this.gameBoard[3] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[5]) ||
         (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
@@ -60,45 +43,33 @@ $(() => {
         (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8]) ||
         (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8]) ||
         (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6])) {
-
       if (playerXTurn) {
-        console.log("player_x");
-          $(this).addClass('tieimage')
-
+        console.log('player_x wins')
+        $(this).addClass('xWinsImage')
       } else {
-        console.log("player_o");
-          $(this).addClass('tieimage')
-//       }
-//
-//     }
-//   }
-// })
-/
-// }
+        console.log('player_o wins')
+        $(this).addClass('oWinsImage')
+      }
+    }
+  }
+  Game.prototype.checkTie = function () {
+    if (this.count === 9) {
+      $(this).addClass('tieImage')
+      return true
+    } else {
+      return false
+    }
+  }
+  Game.prototype.endGame = function () {
+    this.count = 9
+    this.gameOn = false
+  }
+})
 
+Game()
 
-//   gameBoardState = [null, 0,1,2,3,4,5,6,7,8],
-// })
-// })
-//   },
-// },
+ // Game.prototype.checkIfAvailable = function () {
+  // }
 
-// checkIfAvailable: function() {
-
-// checkIfGameInSession: function() {
-
-checkTie = function() {
-  if (this.count === 9) {
-    return true;
-    $(this).addClass('tieimage')
-  } else {
-    return false;
-  };
-}
-//TODO rewrite to work with constructors
-endGame = function() {
-  this.count = 9
-  gameOn = false
-
-
- module.exports = {
+  // Game.prototype.checkIfGameInSession = function () {
+  // }
