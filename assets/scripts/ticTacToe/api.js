@@ -70,7 +70,6 @@ module.exports = {
 // const ajaxDefaults = {
 //   url: 'http://localhost:4741'
 // }
-
 // const myRequest = (data) => {
 //   return $.ajax({
 //     method: 'POST',
@@ -78,6 +77,5 @@ module.exports = {
 //     url: ajaxDefaults.url
 //   })
 // }
-
 // module.exports = {
-//   myRequest }
+//   myRequest
