@@ -10,11 +10,11 @@ class Game {
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'X'
       $(event.target).addClass('xImage')
-      this.count++
+      // this.gameBoard.push(event)
     } else {
       this.gameBoard[event.target.id] = 'O'
       $(event.target).addClass('oImage')
-      this.count++
+     // this.gameBoard.push(event)
     }
     this.playerXTurn = !this.playerXTurn
     this.count++
@@ -24,7 +24,7 @@ class Game {
     const bound = this.claim.bind(this)
     $('.gameButtons').click(bound)
   }
-  checkIfWinner (playerXTurn) {
+  checkIfWinner (playerXTurn, gameBoard) {
     if ((this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2]) ||
       (this.gameBoard[3] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[5]) ||
       (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
@@ -39,6 +39,7 @@ class Game {
       } else {
         console.log('player_o wins')
         $(this).addClass('oWinsImage')
+
       }
     }
   }
