@@ -30,16 +30,20 @@ class Game {
     //    - check for winners
     //    - check if spot is available
     //    - check if tie
-    if ((this.gameBoard.every(v => v ===' ')) && ((
-      this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2]) ||
-      (this.gameBoard[3] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[5]) ||
-      (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
-      (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[3] === this.gameBoard[6]) ||
-      (this.gameBoard[1] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[7]) ||
-      (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8]) ||
-      (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8]) ||
-      (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6]))) {
-      if (playerXTurn) {
+    // ((this.gameBoard.every(v => v ===' ')) &&
+    const lookUpToken = this.playerXTurn ? 'X' : 'O'
+    if (
+      // ((this.gameBoard[0] !== '' && this.gameBoard[1] !== '' && this.gameBoard[2] !== '') && (this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2])) ||
+      (this.gameBoard[3] === lookUpToken && this.gameBoard[4] === lookUpToken && this.gameBoard[5] === lookUpToken)
+      // (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
+      // (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[3] === this.gameBoard[6]) ||
+      // (this.gameBoard[1] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[7]) ||
+      // (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8]) ||
+      // (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8]) ||
+      // (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6])
+    ) {
+      console.log(this.playerXTurn)
+      if (this.playerXTurn) {
         console.log('player_x wins')
         $(this).addClass('xWinsImage')
       } else {
