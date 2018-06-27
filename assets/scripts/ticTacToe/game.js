@@ -5,10 +5,11 @@ class Game {
     this.playerXTurn = true
     this.gameBoard = []
   }
-  claim (event) {
+  claim (event, gameBoard) {
     event.preventDefault()
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'X'
+      console.log(this.gameBoard)
       $(event.target).addClass('xImage')
      // this.gameBoard.push(event)
     } else {
@@ -24,27 +25,26 @@ class Game {
     const bound = this.claim.bind(this)
     $('.gameButtons').click(bound)
   }
-
-
   checkIfWinner (playerXTurn, gameBoard) {
     // trying to build gameBoard into an array that can
     //    - check for winners
     //    - check if spot is available
     //    - check if tie
-    console.log(gameBoard)
-    if ((this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2]) ||
+    if ((this.gameBoard !== '') && ((
+      this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2]) ||
       (this.gameBoard[3] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[5]) ||
       (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
       (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[3] === this.gameBoard[6]) ||
       (this.gameBoard[1] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[7]) ||
       (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8]) ||
       (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8]) ||
-      (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6])) {
+      (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6]))) {
       if (playerXTurn) {
         console.log('player_x wins')
         $(this).addClass('xWinsImage')
       } else {
         console.log('player_o wins')
+        console.log(this.gameBoard)
         $(this).addClass('oWinsImage')
 
       }
