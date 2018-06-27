@@ -11,15 +11,15 @@ class Game {
       this.gameBoard[event.target.id] = 'X'
       console.log(this.gameBoard)
       $(event.target).addClass('xImage')
-     // this.gameBoard.push(event)
+      // this.gameBoard.push(event)
     } else {
       this.gameBoard[event.target.id] = 'O'
       $(event.target).addClass('oImage')
-     // this.gameBoard.push(event)
+      // this.gameBoard.push(event)
     }
+    this.checkIfWinner()
     this.playerXTurn = !this.playerXTurn
     this.count++
-    this.checkIfWinner()
   }
   playGame () {
     const bound = this.claim.bind(this)
@@ -31,27 +31,31 @@ class Game {
     //    - check if spot is available
     //    - check if tie
     // ((this.gameBoard.every(v => v ===' ')) &&
-    const lookUpToken = this.playerXTurn ? 'X' : 'O'
-    if (
-      // ((this.gameBoard[0] !== '' && this.gameBoard[1] !== '' && this.gameBoard[2] !== '') && (this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[1] === this.gameBoard[2])) ||
-      (this.gameBoard[3] === lookUpToken && this.gameBoard[4] === lookUpToken && this.gameBoard[5] === lookUpToken)
-      // (this.gameBoard[6] === this.gameBoard[7] && this.gameBoard[7] === this.gameBoard[8]) ||
-      // (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[3] === this.gameBoard[6]) ||
-      // (this.gameBoard[1] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[7]) ||
-      // (this.gameBoard[2] === this.gameBoard[5] && this.gameBoard[5] === this.gameBoard[8]) ||
-      // (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[8]) ||
-      // (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[4] === this.gameBoard[6])
-    ) {
-      console.log(this.playerXTurn)
-      if (this.playerXTurn) {
-        console.log('player_x wins')
-        $(this).addClass('xWinsImage')
-      } else {
-        console.log('player_o wins')
-        console.log(this.gameBoard)
-        $(this).addClass('oWinsImage')
-
-      }
+    // function setMessage(msg) {
+    //   document.getElementById("text").innerText = msg;
+    //  }
+    const token = this.playerXTurn ? 'X' : 'O'
+    if ((this.gameBoard[0] === token && this.gameBoard[1] === token && this.gameBoard[2] === token) ||
+       (this.gameBoard[3] === token && this.gameBoard[4] === token && this.gameBoard[5] === token) ||
+       (this.gameBoard[6] === token && this.gameBoard[7] === token && this.gameBoard[8] === token) ||
+       (this.gameBoard[0] === token && this.gameBoard[3] === token && this.gameBoard[6] === token) ||
+       (this.gameBoard[1] === token && this.gameBoard[4] === token && this.gameBoard[7] === token) ||
+       (this.gameBoard[2] === token && this.gameBoard[5] === token && this.gameBoard[8] === token) ||
+       (this.gameBoard[0] === token && this.gameBoard[4] === token && this.gameBoard[8] === token) ||
+       (this.gameBoard[2] === token && this.gameBoard[4] === token && this.gameBoard[6] === token)) {
+      console.log(token + 'wins!')
+      // setMessage(playerXTurn + 'is the winner!')
+    } else {
+      return
+    }
+    console.log(this.playerXTurn)
+    if (this.playerXTurn) {
+      console.log('player_x wins')
+      $(this).addClass('xWinsImage')
+    } else {
+      console.log('player_o wins')
+      console.log(this.gameBoard)
+      $(this).addClass('oWinsImage')
     }
   }
   checkTie () {
@@ -68,3 +72,7 @@ class Game {
   }
 }
 module.exports = Game
+
+// (this.gameBoard[3] === lookUpToken && this.gameBoard[4] === lookUpToken && this.gameBoard[5] === lookUpToken)
+//  const lookUpToken = this.playerXTurn ? 'X' : 'O'
+//  console.log(lookUpToken)
