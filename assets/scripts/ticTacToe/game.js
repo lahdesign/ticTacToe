@@ -17,6 +17,7 @@ class Game {
       $(event.target).addClass('oImage')
       // this.gameBoard.push(event)
     }
+    this.checkTie()
     this.checkIfWinner()
     this.playerXTurn = !this.playerXTurn
     this.count++
@@ -30,7 +31,6 @@ class Game {
     //    - check for winners
     //    - check if spot is available
     //    - check if tie
-    // ((this.gameBoard.every(v => v ===' ')) &&
     // function setMessage(msg) {
     //   document.getElementById("text").innerText = msg;
     //  }
@@ -59,8 +59,9 @@ class Game {
     }
   }
   checkTie () {
-    if (this.count === 9) {
+    if (this.count === 8) {
       $(this).addClass('tieImage')
+      console.log('it is a tie')
       return true
     } else {
       return false
