@@ -1,2 +1,53 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+table {
+  width: 100%;
+}
+td {
+  width: 33.333%;
+  border: 6px solid #222;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+
+.xImage {
+  background-image: url('../../images/x.jpg');
+  border-color: yellow;
+  background-size: cover;
+}
+
+.oImage {
+  background-image: url('../../images/o.jpg');
+  background-size: cover;
+}
+
+.xWinsImage {
+  background-image: url('../../images/xWins.jpg');
+  background-size: cover;
+}
+
+.oWinsImage {
+  background-image: url('../../images/oWins.jpg');
+  background-size: cover;
+}
+
+.tieImage {
+
+}
+
+
+// div {
+//   display:inline-block;
+//   border and
+//   widths (33.3333% or less depending on
+//   border width
+//   box-sizing: border-box
+
+// .gameButtons {
+//   width: 100%
+//   height: 100%
+// }
