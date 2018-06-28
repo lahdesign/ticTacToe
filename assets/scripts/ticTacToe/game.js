@@ -19,6 +19,7 @@ class Game {
     }
     this.checkTie()
     this.checkIfWinner()
+    this.endGame()
     this.playerXTurn = !this.playerXTurn
     this.count++
   }
@@ -68,7 +69,7 @@ class Game {
     }
   }
   endGame () {
-    this.count = 9
+    this.count = 8
     this.gameOn = false
   }
 }
