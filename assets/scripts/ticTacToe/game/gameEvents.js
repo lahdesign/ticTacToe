@@ -2,8 +2,8 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-const api = require('./api')
-const ui = require('./ui')
+const api = require('./game/api')
+const ui = require('./gameUi')
 
 const onCreateExample = function (event) {
   event.preventDefault()

@@ -8,15 +8,16 @@ class Game {
   claim (event, gameBoard) {
     event.preventDefault()
     if (this.playerXTurn) {
-      this.gameBoard[event.target.id] = 'X'
+      this.gameBoard[event.target.id] = 'x'
       console.log(this.gameBoard)
       $(event.target).addClass('xImage')
       // this.gameBoard.push(event)
     } else {
-      this.gameBoard[event.target.id] = 'O'
+      this.gameBoard[event.target.id] = 'o'
       $(event.target).addClass('oImage')
       // this.gameBoard.push(event)
     }
+    this.checkIfAvailable()
     this.checkTie()
     this.checkIfWinner()
     this.endGame()
@@ -28,14 +29,7 @@ class Game {
     $('.gameButtons').click(bound)
   }
   checkIfWinner (playerXTurn, gameBoard) {
-    // trying to build gameBoard into an array that can
-    //    - check for winners
-    //    - check if spot is available
-    //    - check if tie
-    // function setMessage(msg) {
-    //   document.getElementById("text").innerText = msg;
-    //  }
-    const token = this.playerXTurn ? 'X' : 'O'
+    const token = this.playerXTurn ? 'x' : 'o'
     if ((this.gameBoard[0] === token && this.gameBoard[1] === token && this.gameBoard[2] === token) ||
        (this.gameBoard[3] === token && this.gameBoard[4] === token && this.gameBoard[5] === token) ||
        (this.gameBoard[6] === token && this.gameBoard[7] === token && this.gameBoard[8] === token) ||
@@ -49,13 +43,11 @@ class Game {
     } else {
       return
     }
-    console.log(this.playerXTurn)
     if (this.playerXTurn) {
-      console.log('player_x wins')
+      // display ('player_x wins')
       $(this).addClass('xWinsImage')
     } else {
-      console.log('player_o wins')
-      console.log(this.gameBoard)
+      // display ('player_o wins')
       $(this).addClass('oWinsImage')
     }
   }
@@ -73,8 +65,12 @@ class Game {
     this.gameOn = false
   }
 }
+  checkIfAvailable (gameBoard) {
+			if (this.gameBoard === ;
+		//do this
+				 if false;
+		// do this
+				};
+			};
+  }
 module.exports = Game
-
-// (this.gameBoard[3] === lookUpToken && this.gameBoard[4] === lookUpToken && this.gameBoard[5] === lookUpToken)
-//  const lookUpToken = this.playerXTurn ? 'X' : 'O'
-//  console.log(lookUpToken)

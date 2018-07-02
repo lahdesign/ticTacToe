@@ -23,7 +23,7 @@ IV. Process of building
       - Started defining universal variables and how their states would change
       - Ended up refactoring my code to be more object oriented
       - Redrew my entity relationship diagram
-      - Realized I had an array that was smarter than I knew what to do with
+      - Realized I had an array that was smar  ter than I knew what to do with
 V. Updates
 
 

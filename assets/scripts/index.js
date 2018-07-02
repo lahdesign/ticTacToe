@@ -1,7 +1,9 @@
 'use strict'
 const getFormFields = require('../../lib/get-form-fields')
-const api = require('./ticTacToe/api')
-const ui = require('./ticTacToe/ui')
+const authApi = require('./ticTacToe/auth/authApi')
+const authUi = require('./ticTacToe/auth/authui')
+const gameApi = require('./ticTacToe/game/gameApi')
+const gameUi = require('./ticTacToe/game/gameUi')
 const Game = require('./ticTacToe/game')
 const gameInstance = new Game()
 
