@@ -21,7 +21,15 @@ $(() => {
   $('.gameButtons').on('click', function (event) {
     store.gameInstance.claim(event)
   })
+// submit since it is a form
+  $('#sign-up').submit(function (event) {
+    event.preventDefault()
+    const form = event.target
+    const data = getFormFields(form)
+  })
   // gameInstance.playGame()
 })
 
-
+module.exports = {
+  data
+}

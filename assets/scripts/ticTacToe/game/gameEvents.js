@@ -1,7 +1,6 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-
 const api = require('./game/api')
 const ui = require('./gameUi')
 
