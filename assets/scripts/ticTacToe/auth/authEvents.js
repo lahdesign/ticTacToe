@@ -1,11 +1,8 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields')
-const game = require('../game.js')
 const authApi = require('./authApi')
 const authUi = require('./authUi')
-
-
 // Name your handlers, it eases debugging.
 //
 // also, follow a convention for handlers. here, I name my handler
@@ -14,12 +11,10 @@ const authUi = require('./authUi')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
+  const data = getFormFields(event)
   authApi.signUp(data)
-    .then(authUi.signUpSuccess)
-    console.log("Yeah it works")
-    .catch(authUi.signUpFailure)
-    console.log("Didn't work")
+    .then(authUi.onSignUpSuccess)
+    .catch(authUi.onSignUpFailure)
 }
 
 // const onGetBook = function (event) {
@@ -68,8 +63,5 @@ const onSignUp = function (event) {
 // }
 
 module.exports = {
-  onSignUp,
-  onGetBook,
-  onDeleteBook,
-  onUpdateBook
+  onSignUp
 }

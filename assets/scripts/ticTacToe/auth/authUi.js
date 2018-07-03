@@ -1,15 +1,16 @@
 
-const store = require('../../store.js')
+// const store = require('../../store.js')
 
-const onSignUpSuccess = function (data) {
+const onSignUpSuccess = function () {
   $('#userMessage').text('Signed up successfully')
+  console.log('signed up successfully')
   $('#sign-up')[0].reset()
 }
 
 const onSignUpFailure = function () {
   $('#sign-up-message').text('Signed up failed.')
   $('#sign-up-message').css('background-color', 'red')
-  resetForms()
+  // resetForms()
   setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
 

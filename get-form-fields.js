@@ -28,17 +28,10 @@ const ui = require('./ui')
 // }
 
 $(() => {
-  $('#sign-up').on('submit', function (event) {
-    let data = getFormFields(event)
-    event.preventDefault()
-    authApi.myRequest(data)
-      .then(authUi.success)
-      .catch(authUi.failure)
-  })
+
 })
 
 module.exports = {
-data,
-success,
-failure
+// success,
+// failure
 }

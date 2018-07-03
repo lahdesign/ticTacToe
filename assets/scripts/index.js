@@ -1,9 +1,10 @@
 'use strict'
 const getFormFields = require('../../lib/get-form-fields')
+const authEvents = require('./ticTacToe/auth/authEvents')
 const authApi = require('./ticTacToe/auth/authApi')
 const authUi = require('./ticTacToe/auth/authui')
-const gameApi = require('./ticTacToe/game/gameApi')
-const gameUi = require('./ticTacToe/game/gameUi')
+// const gameApi = require('./ticTacToe/game/gameApi')
+// const gameUi = require('./ticTacToe/game/gameUi')
 const Game = require('./ticTacToe/game')
 const store = require('./store')
 
@@ -22,14 +23,15 @@ $(() => {
     store.gameInstance.claim(event)
   })
 // submit since it is a form
-  $('#sign-up').submit(function (event) {
+
+// 'submit', authEvents.onSignUp
+  $('#sign-up').on('submit', function (event) {
     event.preventDefault()
-    const form = event.target
-    const data = getFormFields(form)
+    const data = getFormFields(event.target)
+    authApi.signUp(data)
+      .then(authUi.success)
+      .catch(authUi.failure)
   })
   // gameInstance.playGame()
 })
 
-module.exports = {
-  data
-}
