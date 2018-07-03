@@ -5,7 +5,7 @@ const authUi = require('./ticTacToe/auth/authui')
 const gameApi = require('./ticTacToe/game/gameApi')
 const gameUi = require('./ticTacToe/game/gameUi')
 const Game = require('./ticTacToe/game')
-const gameInstance = new Game()
+const store = require('./store')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -13,5 +13,15 @@ const gameInstance = new Game()
 // use require without a reference to ensure a file is bundled
 // require('./example')
 $(() => {
-  gameInstance.playGame()
+  $('.newGame').on('click', function () {
+    store.gameInstance = new Game()
+    console.log(store)
+  })
+
+  $('.gameButtons').on('click', function (event) {
+    store.gameInstance.claim(event)
+  })
+  // gameInstance.playGame()
 })
+
+

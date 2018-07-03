@@ -1,6 +1,5 @@
 
-const store = require('../utility/userStore')
-const gameEvents = require('./temp')
+const store = require('../../store.js')
 const resetForms = function () {
   document.getElementById('sign-up').reset()
   document.getElementById('sign-in').reset()

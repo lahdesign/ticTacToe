@@ -3,10 +3,14 @@ class Game {
     this.count = 0
     this.gameOn = true
     this.playerXTurn = true
-    this.gameBoard = []
+    this.gameBoard = Array(9).fill('')
   }
-  claim (event, gameBoard) {
+  claim (event) {
     event.preventDefault()
+    const available = this.checkIfAvailable(event.target.id)
+    if (available === false) {
+      return
+    }
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
       console.log(this.gameBoard)
@@ -17,7 +21,6 @@ class Game {
       $(event.target).addClass('oImage')
       // this.gameBoard.push(event)
     }
-    this.checkIfAvailable()
     this.checkTie()
     this.checkIfWinner()
     this.endGame()
@@ -64,13 +67,13 @@ class Game {
     this.count = 8
     this.gameOn = false
   }
-}
-  checkIfAvailable (gameBoard) {
-			if (this.gameBoard === ;
-		//do this
-				 if false;
-		// do this
-				};
-			};
+  checkIfAvailable (index) {
+    if (this.gameBoard[index] == '') {
+      return true
+    } else {
+      return false
+    }
   }
+}
+
 module.exports = Game
