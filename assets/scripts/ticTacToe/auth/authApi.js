@@ -11,7 +11,23 @@ const signUp = function (data) {
     data
   })
 }
-
+const signIn = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data
+  })
+}
+const changePassword = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 // const index = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/books',
@@ -42,7 +58,8 @@ const signUp = function (data) {
 // }
 
 module.exports = {
-  signUp
+  signUp,
+  signIn
   // index,
   // show,
   // destroy,

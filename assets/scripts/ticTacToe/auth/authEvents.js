@@ -1,6 +1,6 @@
 'use strict'
 
-const getFormFields = require('../../../lib/get-form-fields')
+const getFormFields = require('../../../../lib/get-form-fields')
 const authApi = require('./authApi')
 const authUi = require('./authUi')
 // Name your handlers, it eases debugging.
@@ -11,10 +11,17 @@ const authUi = require('./authUi')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  const data = getFormFields(event)
+  const data = getFormFields(event.target)
   authApi.signUp(data)
     .then(authUi.onSignUpSuccess)
     .catch(authUi.onSignUpFailure)
+}
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.signIn(data)
+    .then(authUi.onSignInSuccess)
+    .catch(authUi.onSignInFailure)
 }
 
 // const onGetBook = function (event) {
@@ -63,5 +70,6 @@ const onSignUp = function (event) {
 // }
 
 module.exports = {
-  onSignUp
+  onSignUp,
+  onSignIn
 }

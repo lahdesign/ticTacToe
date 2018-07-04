@@ -16,22 +16,14 @@ const store = require('./store')
 $(() => {
   $('.newGame').on('click', function () {
     store.gameInstance = new Game()
-    console.log(store)
   })
 
   $('.gameButtons').on('click', function (event) {
     store.gameInstance.claim(event)
   })
 // submit since it is a form
-
-// 'submit', authEvents.onSignUp
-  $('#sign-up').on('submit', function (event) {
-    event.preventDefault()
-    const data = getFormFields(event.target)
-    authApi.signUp(data)
-      .then(authUi.success)
-      .catch(authUi.failure)
-  })
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  console.log('got here')
   // gameInstance.playGame()
 })
-

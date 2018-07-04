@@ -1,5 +1,6 @@
 
 // const store = require('../../store.js')
+const authEvents = require('./authEvents.js')
 
 const onSignUpSuccess = function () {
   $('#userMessage').text('Signed up successfully')
@@ -7,10 +8,27 @@ const onSignUpSuccess = function () {
   $('#sign-up')[0].reset()
 }
 
-const onSignUpFailure = function () {
+const onSignUpFailure = function (error) {
+  console.error(error)
   $('#sign-up-message').text('Signed up failed.')
   $('#sign-up-message').css('background-color', 'red')
   // resetForms()
+  setTimeout(() => $('#sign-in-message').text(''), 3000)
+}
+
+const onSignInSuccess = function () {
+  $('#sign-in-message').text('Signed in successfully.')
+  $('#sign-in-message').css('background-color', 'green')
+  // resetForms()
+  setTimeout(() => $('#sign-in-message').text(''), 3000)
+  // store.user = data.user
+  // store.gameInstance()
+}
+
+const onSignInFailure = function (error) {
+  $('#sign-in-message').text('Signed in failed.')
+  $('#sign-in-message').css('background-color', 'red')
+  //resetForms()
   setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
 
@@ -20,38 +38,18 @@ const onSignUpFailure = function () {
 //   document.getElementById('sign-in').reset()
 //   document.getElementById('change-password').reset()
 // }
-
 // const onSignUpSuccess = function () {
 //   $('#sign-up-message').text('Signed up successfully.')
 //   $('#sign-up-message').css('background-color', 'green')
 //   resetForms()
 //   setTimeout(() => $('#sign-up-message').text(''), 3000)
 // }
-
-
-// const onSignInSuccess = function (data) {
-//   $('#sign-in-message').text('Signed in successfully.')
-//   $('#sign-in-message').css('background-color', 'green')
-//   resetForms()
-//   setTimeout(() => $('#sign-in-message').text(''), 3000)
-//   store.user = data.user
-//   gameEvents.onCreateGame()
-// }
-
-// const onSignInFailure = function () {
-//   $('#sign-in-message').text('Signed in failed.')
-//   $('#sign-in-message').css('background-color', 'red')
-//   resetForms()
-//   setTimeout(() => $('#sign-in-message').text(''), 3000)
-// }
-
 // const onChangePasswordSuccess = function () {
 //   $('#change-password-message').text('Changed password successfully.')
 //   $('#change-password-message').css('background-color', 'green')
 //   resetForms()
 //   setTimeout(() => $('#change-password-message').text(''), 3000)
 // }
-
 // const onChangePasswordFailure = function () {
 //   $('#change-password-message').text('Password change failed.')
 //   $('#change-password-message').css('background-color', 'red')
@@ -77,9 +75,9 @@ const onSignUpFailure = function () {
 module.exports = {
 //   onSuccess
   onSignUpSuccess,
-  onSignUpFailure
-//   onSignInSuccess,
-//   onSignInFailure,
+  onSignUpFailure,
+  onSignInSuccess,
+  onSignInFailure
 //   onChangePasswordSuccess,
 //   onChangePasswordFailure,
 //   onSignOutSuccess,
