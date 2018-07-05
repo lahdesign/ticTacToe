@@ -1,8 +1,7 @@
 'use strict'
 
 const config = require('../../config.js')
-
-// const store = require('../../store')
+const store = require('../../store')
 
 const signUp = function (data) {
   return $.ajax({
@@ -28,6 +27,34 @@ const changePassword = function (data) {
     data
   })
 }
+const signOut = function () {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const userMoves = function (index, value, over) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/' + store.game.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
+      }
+    }
+  })
+}
+
 // const index = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/books',
@@ -59,7 +86,9 @@ const changePassword = function (data) {
 
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  changePassword,
+  signOut
   // index,
   // show,
   // destroy,

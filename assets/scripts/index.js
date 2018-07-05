@@ -20,10 +20,13 @@ $(() => {
 
   $('.gameButtons').on('click', function (event) {
     store.gameInstance.claim(event)
+    // $("#firstHeading").onClick("click", //GameConstructor)
   })
 // submit since it is a form
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-password').on('submit', authEvents.onchangePassword)
   console.log('got here')
+  $('#sign-out').on('submit', authEvents.onSignOut)
   // gameInstance.playGame()
 })

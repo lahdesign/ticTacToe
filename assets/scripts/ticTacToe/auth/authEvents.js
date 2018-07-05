@@ -24,6 +24,21 @@ const onSignIn = function (event) {
     .catch(authUi.onSignInFailure)
 }
 
+const onchangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.signIn(data)
+    .then(authUi.changePasswordSuccess)
+    .catch(authUi.failure)
+}
+const onSignOut = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.signOut(data)
+    .then(authUi.onSignOutSuccess)
+    .catch(authUi.failure)
+}
+
 // const onGetBook = function (event) {
 //   event.preventDefault()
 //   const data = getFormFields(event.target)
@@ -71,5 +86,7 @@ const onSignIn = function (event) {
 
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onchangePassword,
+  onSignOut
 }
