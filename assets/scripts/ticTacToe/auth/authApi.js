@@ -52,6 +52,10 @@ const userMoves = function (index, value, over) {
         'over': over
       }
     }
+  }).then(()=>{
+
+  }).catch(()=>{
+    console.log('error')
   })
 }
 

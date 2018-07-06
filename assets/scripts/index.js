@@ -13,6 +13,8 @@ const store = require('./store')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+
+
 $(() => {
   $('.newGame').on('click', function () {
     store.gameInstance = new Game()
@@ -29,4 +31,5 @@ $(() => {
   console.log('got here')
   $('#sign-out').on('submit', authEvents.onSignOut)
   // gameInstance.playGame()
+ //  $('#getGames').on('click', onGetGames)
 })

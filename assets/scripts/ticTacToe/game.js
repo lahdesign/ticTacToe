@@ -7,19 +7,21 @@ class Game {
   }
   claim (event) {
     event.preventDefault()
+    this.count = 0
     const available = this.checkIfAvailable(event.target.id)
     if (available === false) {
       return
     }
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
+      console.log('the count is' + this.count)
       console.log(this.gameBoard)
       $(event.target).addClass('xImage')
-      // this.gameBoard.push(event)
+      this.gameBoard.push(event)
     } else {
       this.gameBoard[event.target.id] = 'o'
       $(event.target).addClass('oImage')
-      // this.gameBoard.push(event)
+      this.gameBoard.push(event)
     }
     this.checkTie()
     this.checkIfWinner()
