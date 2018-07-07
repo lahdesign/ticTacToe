@@ -20,32 +20,32 @@ class Game {
     }
     this.checkTie()
     this.checkIfWinner()
-    console.log(event.target.id)
-    console.log('this is the' + this.gameBoard)
+    console.log('this is the div id ' + event.target.id)
+    console.log('this is value ' + this.gameBoard[event.target.id])
     // patch function requires 3 args: index, value, gameOn
     // gameAPI.userMoves(index, value, gameOn)
 
-//   const userMoves = {
-//     game: {
-//       cell: {
-//         index: this.event.target.id,
-//         value: gameBoard
-//       },
-//       over: this.gameOn
-//     }
-//   }
-//   gameApi.updateMove(JSON.stringify(apiData))
-//     .then((data) => {
-//       ui.onUpdateSuccess(data, domElement, this.currPlayerMark, this.won)
-//     })
-//     .then(() => {
-//       if (this.over === false) {
-//         this.changePlayer()
-//         ui.newPlayer(this.currPlayerMark)
-//       }
-//     })
-//     .catch(gameApi.onAjaxFailure)
-// }
+    // const userMoves = {
+    //   game: {
+    //     cell: {
+    //       index: this.event.target.id,
+    //       value: this.gameBoard[event.target.id]
+    //     },
+    //     over: this.gameOn
+    //   }
+    // }
+    //   gameApi.updateMove()
+    //     .then((data) => {
+    //       ui.onUpdateSuccess(data, this.event.target.id, this.gameBoard[event.target.id], this.gameOn)
+    //     })
+    //     .then(() => {
+    //       if (this.over === false) {
+    //         this.function()
+    //         ui.function()
+    //       }
+    //     })
+    //     .catch(gameApi.onFailure)
+    // }
     this.playerXTurn = !this.playerXTurn
     this.count++
     console.log(this)
@@ -66,6 +66,7 @@ class Game {
        (this.gameBoard[2] === token && this.gameBoard[4] === token && this.gameBoard[6] === token)) {
       console.log(token + 'wins!')
       this.endGame()
+      console.log('Game is over' + this.endGame)
       // setMessage(playerXTurn + 'is the winner!')
     } else {
       return
@@ -90,6 +91,8 @@ class Game {
   }
   endGame () {
     this.gameOn = false
+    // display ('gameOver')
+    $(this).addClass('gameOverimage')
   }
 
   checkIfAvailable (index) {
@@ -101,4 +104,6 @@ class Game {
   }
 }
 
-module.exports = Game
+module.exports =
+Game
+

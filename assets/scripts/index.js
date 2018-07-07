@@ -25,6 +25,8 @@ $(() => {
     // $("#firstHeading").onClick("click", //GameConstructor)
   })
 // submit since it is a form
+  $('#board').hide()
+  $('#userInfo').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onchangePassword)

@@ -4,6 +4,10 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./game/api')
 const ui = require('./gameUi')
 
+onGameOver
+$('#board').hide()
+$('#userInfo').hide()
+
 // if (book.id.length !== 0) {
 //   booksApi.update(data)
 //     .then(booksUi.onUpdateSuccess)
