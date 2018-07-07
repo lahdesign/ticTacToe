@@ -7,27 +7,34 @@ class Game {
   }
   claim (event) {
     event.preventDefault()
-    this.count = 0
     const available = this.checkIfAvailable(event.target.id)
     if (available === false) {
       return
     }
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
-      console.log('the count is' + this.count)
-      console.log(this.gameBoard)
       $(event.target).addClass('xImage')
-      this.gameBoard.push(event)
     } else {
       this.gameBoard[event.target.id] = 'o'
       $(event.target).addClass('oImage')
-      this.gameBoard.push(event)
     }
     this.checkTie()
     this.checkIfWinner()
-    this.endGame()
+    console.log(this.index)
+    // gameAPI.userMoves(index, value, gameOn)
+    // .then( )
+    // .catch( )
+    // booksApi.update(data)
+    //   .then(booksUi.onUpdateSuccess)
+    //   .catch(booksUi.onError)
+    // let index =
+    // const value = this.value
+    // let gameOn = this.gameOn
+    // patch function requires 3 args: index, value, gameOn
+    // gameAPI.userMoves(index, value, gameOn
     this.playerXTurn = !this.playerXTurn
     this.count++
+    console.log(this)
   }
   playGame () {
     const bound = this.claim.bind(this)
@@ -44,6 +51,7 @@ class Game {
        (this.gameBoard[0] === token && this.gameBoard[4] === token && this.gameBoard[8] === token) ||
        (this.gameBoard[2] === token && this.gameBoard[4] === token && this.gameBoard[6] === token)) {
       console.log(token + 'wins!')
+      this.endGame()
       // setMessage(playerXTurn + 'is the winner!')
     } else {
       return
@@ -57,20 +65,21 @@ class Game {
     }
   }
   checkTie () {
-    if (this.count === 8) {
+    if (this.count === 9) {
       $(this).addClass('tieImage')
       console.log('it is a tie')
+      this.endGame()
       return true
     } else {
       return false
     }
   }
   endGame () {
-    this.count = 8
     this.gameOn = false
   }
+
   checkIfAvailable (index) {
-    if (this.gameBoard[index] == '') {
+    if (this.gameBoard[index] === '') {
       return true
     } else {
       return false

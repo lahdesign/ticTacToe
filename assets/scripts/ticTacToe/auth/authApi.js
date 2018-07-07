@@ -36,29 +36,6 @@ const signOut = function () {
     }
   })
 }
-const userMoves = function (index, value, over) {
-  return $.ajax({
-    method: 'PATCH',
-    url: config.apiUrl + '/games/' + store.game.id,
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': value
-        },
-        'over': over
-      }
-    }
-  }).then(()=>{
-
-  }).catch(()=>{
-    console.log('error')
-  })
-}
-
 // const index = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/books',

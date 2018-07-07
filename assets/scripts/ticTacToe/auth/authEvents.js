@@ -39,52 +39,11 @@ const onSignOut = function (event) {
     .catch(authUi.failure)
 }
 
-// const onGetBook = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const book = data.book
-//   if (book.id.length !== 0) {
-//     booksApi.show(book.id)
-//       .then(booksUi.onSuccess)
-//       .catch(booksUi.onError)
-//   } else {
-//     console.log('Please provide a book id!')
-//   }
+// const moves = function() {
+//   authApi.userMoves(data)
+//   .then(authUi.)
+//   .catch(authUi.failure)
 // }
-
-// const onDeleteBook = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const book = data.book
-//   if (book.id.length !== 0) {
-//     booksApi.destroy(book.id)
-//       .then(booksUi.onDeleteSuccess)
-//       .catch(booksUi.onError)
-//   } else {
-//     console.log('Please provide a book id!')
-//   }
-// }
-
-// const onUpdateBook = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const book = data.book
-//   if (book.title === '') {
-//     // alert('title required')
-//     $('#content').html('<p>Title is required</p>')
-//     $('#content').css('background-color', 'red')
-//     return false
-//   }
-//   if (book.id.length !== 0) {
-//     booksApi.update(data)
-//       .then(booksUi.onUpdateSuccess)
-//       .catch(booksUi.onError)
-//   } else {
-//     console.log('Please provide a book id!')
-//   }
-// }
-
-
 
 module.exports = {
   onSignUp,

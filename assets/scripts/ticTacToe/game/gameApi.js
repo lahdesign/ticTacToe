@@ -3,6 +3,25 @@
 const config = require('../../config')
 const store = require('../../store')
 
+
+const userMoves = function (index, value, gameOn) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/' + store.game.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': gameOn
+      }
+    }
+  })
+}
 // const create = function (data) {
 //   console.log('data: ', data)
 //   return $.ajax({
@@ -77,5 +96,7 @@ const store = require('../../store')
 //     url: ajaxDefaults.url
 //   })
 // }
-// module.exports = {
-//   myRequest
+module.exports = {
+  userMoves
+}
+
