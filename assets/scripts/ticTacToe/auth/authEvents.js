@@ -39,12 +39,6 @@ const onSignOut = function (event) {
     .catch(authUi.failure)
 }
 
-// const moves = function() {
-//   authApi.userMoves(data)
-//   .then(authUi.)
-//   .catch(authUi.failure)
-// }
-
 module.exports = {
   onSignUp,
   onSignIn,

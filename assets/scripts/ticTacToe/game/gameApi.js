@@ -4,6 +4,18 @@ const config = require('../../config')
 const store = require('../../store')
 
 
+// const createGame = function () {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {}
+//   })
+// }
+
+
 const userMoves = function (index, value, gameOn) {
   return $.ajax({
     method: 'PATCH',
@@ -22,60 +34,24 @@ const userMoves = function (index, value, gameOn) {
     }
   })
 }
-// const create = function (data) {
-//   console.log('data: ', data)
-//   return $.ajax({
-//     url: config.apiUrl + '/examples',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//     // data: data
-//   })
-// }
 
-// const index = function () {
+
+// const getCompletedGames = function() {
 //   return $.ajax({
-//     url: config.apiUrl + '/examples',
+//     url: config.apiUrl + '/games?over=true',
 //     method: 'GET',
 //     headers: {
+//       "Content-type": 'application/json',
 //       Authorization: 'Token token=' + store.user.token
 //     }
 //   })
 // }
 
-// const show = function (example) {
-//   return $.ajax({
-//     url: config.apiUrl + '/examples/' + example.id,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
-// const destroy = function (id) {
-//   return $.ajax({
-//     url: config.apiUrl + '/examples/' + id,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
-// const update = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/examples/' + data.example.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//     // data: data
-//   })
-// }
+module.exports = {
+  createGame,
+  updateMove,
+  getCompletedGames
+}
 
 // module.exports = {
 //   create,

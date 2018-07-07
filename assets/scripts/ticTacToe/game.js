@@ -20,18 +20,32 @@ class Game {
     }
     this.checkTie()
     this.checkIfWinner()
-    console.log(this.index)
-    // gameAPI.userMoves(index, value, gameOn)
-    // .then( )
-    // .catch( )
-    // booksApi.update(data)
-    //   .then(booksUi.onUpdateSuccess)
-    //   .catch(booksUi.onError)
-    // let index =
-    // const value = this.value
-    // let gameOn = this.gameOn
+    console.log(event.target.id)
+    console.log('this is the' + this.gameBoard)
     // patch function requires 3 args: index, value, gameOn
-    // gameAPI.userMoves(index, value, gameOn
+    // gameAPI.userMoves(index, value, gameOn)
+
+//   const userMoves = {
+//     game: {
+//       cell: {
+//         index: this.event.target.id,
+//         value: gameBoard
+//       },
+//       over: this.gameOn
+//     }
+//   }
+//   gameApi.updateMove(JSON.stringify(apiData))
+//     .then((data) => {
+//       ui.onUpdateSuccess(data, domElement, this.currPlayerMark, this.won)
+//     })
+//     .then(() => {
+//       if (this.over === false) {
+//         this.changePlayer()
+//         ui.newPlayer(this.currPlayerMark)
+//       }
+//     })
+//     .catch(gameApi.onAjaxFailure)
+// }
     this.playerXTurn = !this.playerXTurn
     this.count++
     console.log(this)
