@@ -44,7 +44,7 @@ class Game {
     //         ui.function()
     //       }
     //     })
-    //     .catch(gameApi.onFailure)
+    //     .catch(gameApi.failure)
     // }
     this.playerXTurn = !this.playerXTurn
     this.count++
@@ -64,23 +64,25 @@ class Game {
        (this.gameBoard[2] === token && this.gameBoard[5] === token && this.gameBoard[8] === token) ||
        (this.gameBoard[0] === token && this.gameBoard[4] === token && this.gameBoard[8] === token) ||
        (this.gameBoard[2] === token && this.gameBoard[4] === token && this.gameBoard[6] === token)) {
-      console.log(token + 'wins!')
+      console.log(this.token + 'wins!')
+      debugger
       this.endGame()
       console.log('Game is over' + this.endGame)
-      // setMessage(playerXTurn + 'is the winner!')
     } else {
       return
     }
     if (this.playerXTurn) {
-      // display ('player_x wins')
+      $('#board').hide()
+      $('.xWinsImage').show()
       $(this).addClass('xWinsImage')
     } else {
-      // display ('player_o wins')
+      $('#board').hide()
+      $('.oWinsImage').show()
       $(this).addClass('oWinsImage')
     }
   }
   checkTie () {
-    if (this.count === 9) {
+    if (this.gameBoard.count === 9) {
       $(this).addClass('tieImage')
       console.log('it is a tie')
       this.endGame()
