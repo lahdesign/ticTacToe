@@ -25,7 +25,7 @@ const onSignInSuccess = function () {
   // store.gameInstance()
 }
 
-const onSignInFailure = function (error) {
+const onSignInFailure = function () {
   $('#sign-in-message').text('Signed in failed.')
   $('#sign-in-message').css('background-color', 'red')
   //resetForms()
