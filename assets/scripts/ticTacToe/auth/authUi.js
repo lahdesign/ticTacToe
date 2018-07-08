@@ -1,5 +1,5 @@
 
-// const store = require('../../store.js')
+const store = require('../../store.js')
 const authEvents = require('./authEvents.js')
 
 const onSignUpSuccess = function () {
@@ -16,12 +16,12 @@ const onSignUpFailure = function (error) {
   setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
 
-const onSignInSuccess = function () {
+const onSignInSuccess = function (data) {
   $('#sign-in-message').text('Signed in successfully.')
   $('#sign-in-message').css('background-color', 'green')
   // resetForms()
   setTimeout(() => $('#sign-in-message').text(''), 3000)
-  // store.user = data.user
+  store.user = data.user
   // store.gameInstance()
 }
 

@@ -3,6 +3,8 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./game/api')
 const ui = require('./gameUi')
+const config = require('../../config.js')
+const store = require('../../store')
 
 onGameOver
 $('#board').hide()
@@ -36,23 +38,12 @@ $('#userInfo').hide()
 //     .catch(ui.onIndexFailure)
 // }
 
-// const onShowExample = function (event) {
-//   event.preventDefault()
-//   console.log('onShowExample ran!')
-
-//   const data = getFormFields(event.target)
-//   const example = data.example
-
-//   if (example.id.length !== 0) {
-//     api.show(example)
-//       .then(ui.onShowSuccess)
-//       .catch(ui.onShowFailure)
-//   } else {
-//     $('#message').html('<p>Please provide an example id!</p>')
-//     $('#message').css('background-color', 'red')
-//     console.log('Please enter an example id!')
-//   }
-// }
+const onUserMoves = function (gameValues) {
+  console.log('update moves ran')
+  // const data = game.gameValues
+  api.updateMoves(gameValues, data.isOver)
+    .then(ui.userMovesSuccess)
+    .catch(us.userMovesFailure)
 
 // const onDeleteExample = function (event) {
 //   event.preventDefault()

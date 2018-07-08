@@ -17,7 +17,8 @@ const store = require('./store')
 
 $(() => {
   $('.newGame').on('click', function () {
-    store.gameInstance = new Game()
+    store.gameInstance = new Game.Game()
+    $('#board').show()
   })
 
   $('.gameButtons').on('click', function (event) {
@@ -25,6 +26,7 @@ $(() => {
     // $("#firstHeading").onClick("click", //GameConstructor)
   })
 // submit since it is a form
+
   $('#board').hide()
   $('#userInfo').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -32,6 +34,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onchangePassword)
   console.log('got here')
   $('#sign-out').on('submit', authEvents.onSignOut)
+
   // gameInstance.playGame()
  //  $('#getGames').on('click', onGetGames)
 })

@@ -1,9 +1,16 @@
 'use strict'
+const config = require('../../config.js')
+const store = require('../../store')
+
+const onUserMovesSuccess = function(data)
+
 
 const onCreateSuccess = function (data) {
   $('#message').text('Example successfully created')
   $('#message').css('background-color', 'green')
+  store.game = data.game
   console.log('onCreateSuccess ran. Data is :', data)
+  $('#board').show()
 }
 
 const onCreateFailure = function (error) {
@@ -70,5 +77,6 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onUserMovesSuccess
 }
