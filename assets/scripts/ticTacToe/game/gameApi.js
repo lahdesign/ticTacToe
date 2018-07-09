@@ -1,19 +1,18 @@
 'use strict'
-const game = require('../')
 const config = require('../../config')
 const store = require('../../store')
 
 
-const createGame = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {}
-  })
-}
+// const createGame = function () {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {}
+//   })
+// }
 const userMoves = function (gameValues, gameOn) {
   return $.ajax({
     method: 'PATCH',
@@ -44,8 +43,7 @@ const getCompletedGames = function() {
 }
 
 module.exports = {
-  createGame,
-  updateMove,
+  userMoves,
   getCompletedGames
 }
 

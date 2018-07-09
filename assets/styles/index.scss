@@ -26,13 +26,15 @@ td:after {
 }
 
 .xWinsImage {
-  background-image: url('../../images/xWins.jpg');
-  background-size: cover;
+  // background-image: url('../../images/xWins.jpg');
+  // background-size: cover;
+  // display: none;
 }
 
 .oWinsImage {
   background-image: url('../../images/oWins.jpg');
   background-size: cover;
+  display: none;
 }
 
 .tieImage {

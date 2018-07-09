@@ -3,10 +3,11 @@ const getFormFields = require('../../lib/get-form-fields')
 const authEvents = require('./ticTacToe/auth/authEvents')
 const authApi = require('./ticTacToe/auth/authApi')
 const authUi = require('./ticTacToe/auth/authui')
-// const gameApi = require('./ticTacToe/game/gameApi')
+const gameApi = require('../scripts/ticTacToe/game/gameApi')
 // const gameUi = require('./ticTacToe/game/gameUi')
 const Game = require('./ticTacToe/game')
 const store = require('./store')
+const create = require('../scripts/ticTacToe/game/create')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -18,6 +19,11 @@ const store = require('./store')
 $(() => {
   $('.newGame').on('click', function () {
     store.gameInstance = new Game.Game()
+    create.createGame()
+    .then(function (data) {
+      store.game = data.game
+    })
+    .catch()
     $('#board').show()
   })
 
@@ -28,6 +34,8 @@ $(() => {
 // submit since it is a form
 
   $('#board').hide()
+  $('.xWinsImage').hide()
+  $('.oWinsImage').hide()
   $('#userInfo').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
