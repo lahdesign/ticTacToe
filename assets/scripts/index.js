@@ -35,6 +35,7 @@ $(() => {
 
   $('#board').hide()
   $('.xWinsImage').hide()
+  $('.tieImage').hide()
   $('.oWinsImage').hide()
   $('#userInfo').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)

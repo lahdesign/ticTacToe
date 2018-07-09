@@ -19,13 +19,13 @@ class Game {
     }
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
-      $(event.target).addClass('xImage')
+      $(event.target).toggleClass('xImage')
       gameValues.i = event.target.id
       gameValues.v = this.gameBoard[event.target.id]
       gameApi.userMoves(gameValues)
     } else {
       this.gameBoard[event.target.id] = 'o'
-      $(event.target).addClass('oImage')
+      $(event.target).toggleClass('oImage')
       gameValues.i = event.target.id
       gameValues.v = this.gameBoard[event.target.id]
       gameApi.userMoves(gameValues)
@@ -87,9 +87,8 @@ class Game {
     }
   }
   checkTie () {
-    if (this.gameBoard.count === 9) {
-      $(this).addClass('tieImage')
-      console.log('it is a tie')
+    if (this.count === 8) {
+      $('.tieImage').css('display', 'inline')
       this.endGame()
       return true
     } else {
@@ -98,8 +97,8 @@ class Game {
   }
   endGame () {
     this.gameOn = false
-    // display ('gameOver')
-    $(this).addClass('gameOverimage')
+    $('#board td').removeClass('oImage')
+    $('#board td').removeClass('xImage')
   }
 
   checkIfAvailable (index) {

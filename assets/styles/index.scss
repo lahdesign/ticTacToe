@@ -16,7 +16,6 @@ td:after {
 
 .xImage {
   background-image: url('../../images/x.jpg');
-  border-color: yellow;
   background-size: cover;
 }
 
@@ -32,9 +31,9 @@ td:after {
 }
 
 .oWinsImage {
-  background-image: url('../../images/oWins.jpg');
-  background-size: cover;
-  display: none;
+  // background-image: url('../../images/oWins.jpg');
+  // background-size: cover;
+  // display: none;
 }
 
 .tieImage {
