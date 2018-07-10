@@ -2,7 +2,7 @@
 
 
 I. Overview
-A tic tac toe game for visual learners. The game features 2 object constructor functions and is suggested for users beginning to understand their usage. The design is minimal & the board responsive. 
+A tic tac toe game for visual learners. The game features an object constructor function and is suggested for users beginning to understand their usage. The design is minimal & the board responsive. 
 I am working towards using alpha channels to mimic overprinting, as if you were playing the game with markers in a notebook.
 
 II. Technologies Used
@@ -29,8 +29,8 @@ V. Updates
 
 an object constructor function to build new users 
 -an object constructor function to initilize the board
-+**How you will take the markup of the game board and represent it in JS?**
- 
+<a href="images/wirefFrame.jpg">Wire Frame Image</a>
+<a href="images/entityRelationshipDiagram">Entity Relationship Diagram</a>
 
 +I will use moon imagery and feature a very clean and responsive design
 +I would like to use alpha channels to mimic overprinting, as if you were playing the game with markers in a notebook
