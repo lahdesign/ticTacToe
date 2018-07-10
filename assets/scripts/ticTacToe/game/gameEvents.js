@@ -38,12 +38,28 @@ $('#userInfo').hide()
 //     .catch(ui.onIndexFailure)
 // }
 
+// const onUserMoves = function (gameValues) {
+//   console.log('update moves ran')
+//   // const data = game.gameValues
+//   api.updateMoves(gameValues, data.isOver)
+//     .then(ui.userMovesSuccess)
+//     .catch(ui.userMovesFailure)
+// }
+
+const GetGames = function (event) {
+  event.preventDefault()
+  gameApi.getGames()
+    .then(gameUi.getGamesSuccess)
+    .catch(gameUi.getGamesFailure)
+}
+
 const onUserMoves = function (gameValues) {
   console.log('update moves ran')
   // const data = game.gameValues
   api.updateMoves(gameValues, data.isOver)
     .then(ui.userMovesSuccess)
     .catch(us.userMovesFailure)
+}
 
 // const onDeleteExample = function (event) {
 //   event.preventDefault()
@@ -85,14 +101,6 @@ const onUserMoves = function (gameValues) {
 //     $('#message').css('background-color', 'red')
 //     console.log('Please provide an example id!')
 //   }
-// }
-
-// const addHandlers = () => {
-//   $('#example-create').on('submit', onCreateExample)
-//   $('#example-index').on('submit', onIndexExamples)
-//   $('#example-show').on('submit', onShowExample)
-//   $('#example-delete').on('submit', onDeleteExample)
-//   $('#example-update').on('submit', onUpdateExample)
 // }
 
 module.exports = {

@@ -2,17 +2,8 @@
 const config = require('../../config')
 const store = require('../../store')
 
+// create game has to be in another file because of a circular dependency
 
-// const createGame = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: {}
-//   })
-// }
 const userMoves = function (gameValues, gameOn) {
   return $.ajax({
     method: 'PATCH',
@@ -31,7 +22,7 @@ const userMoves = function (gameValues, gameOn) {
     }
   })
 }
-const getCompletedGames = function() {
+const getGames = function() {
   return $.ajax({
     url: config.apiUrl + '/games?over=true',
     method: 'GET',
@@ -44,7 +35,7 @@ const getCompletedGames = function() {
 
 module.exports = {
   userMoves,
-  getCompletedGames
+  getGames
 }
 
 // module.exports = {

@@ -19,41 +19,21 @@ class Game {
     }
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
-      $(event.target).toggleClass('xImage')
+      $(event.target).addClass('xImage')
       gameValues.i = event.target.id
       gameValues.v = this.gameBoard[event.target.id]
       gameApi.userMoves(gameValues)
     } else {
       this.gameBoard[event.target.id] = 'o'
-      $(event.target).toggleClass('oImage')
+      $(event.target).addClass('oImage')
       gameValues.i = event.target.id
       gameValues.v = this.gameBoard[event.target.id]
       gameApi.userMoves(gameValues)
     }
     this.checkTie()
     this.checkIfWinner()
-    console.log('this is the div id ' + event.target.id)
-    console.log('this is value ' + this.gameBoard[event.target.id])
-    // patch function requires 3 args: index, value, gameOn
-    // gameAPI.userMoves(index, value, gameOn)
-
-
-
-    //   gameApi.updateMove()
-    //     .then((data) => {
-    //       ui.onUpdateSuccess(data, this.event.target.id, this.gameBoard[event.target.id], this.gameOn)
-    //     })
-    //     .then(() => {
-    //       if (this.over === false) {
-    //         this.function()
-    //         ui.function()
-    //       }
-    //     })
-    //     .catch(gameApi.failure)
-    // }
     this.playerXTurn = !this.playerXTurn
     this.count++
-    console.log(this)
   }
   playGame () {
     const bound = this.claim.bind(this)
@@ -69,9 +49,7 @@ class Game {
        (this.gameBoard[2] === playerToken && this.gameBoard[5] === playerToken && this.gameBoard[8] === playerToken) ||
        (this.gameBoard[0] === playerToken && this.gameBoard[4] === playerToken && this.gameBoard[8] === playerToken) ||
        (this.gameBoard[2] === playerToken && this.gameBoard[4] === playerToken && this.gameBoard[6] === playerToken)) {
-      console.log(playerToken + 'wins!')
       this.endGame()
-      console.log('Game is over' + this.endGame)
     } else {
       return
     }
@@ -99,6 +77,10 @@ class Game {
     this.gameOn = false
     $('#board td').removeClass('oImage')
     $('#board td').removeClass('xImage')
+    console.log('it is getting here')
+    $('.oWinsImage').hide()
+    $('.xWinsImage').hide()
+    $('.tieImage').hide()
   }
 
   checkIfAvailable (index) {

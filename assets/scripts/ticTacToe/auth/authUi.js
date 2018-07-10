@@ -19,6 +19,8 @@ const onSignUpFailure = function (error) {
 const onSignInSuccess = function (data) {
   $('#sign-in-message').text('Signed in successfully.')
   $('#sign-in-message').css('background-color', 'green')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   // resetForms()
   setTimeout(() => $('#sign-in-message').text(''), 3000)
   store.user = data.user

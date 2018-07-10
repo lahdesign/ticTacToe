@@ -36,6 +36,16 @@ const signOut = function () {
     }
   })
 }
+
+// const getGames = function () {
+//   return $.ajax({
+//     method: 'GET',
+//     url: config.apiUrl + '/games/',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 // const index = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/books',
@@ -69,7 +79,8 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getGames
   // index,
   // show,
   // destroy,
