@@ -12,5 +12,5 @@ const createGame = function () {
   })
 }
 module.exports = {
-   createGame
+  createGame
 }

@@ -2,8 +2,15 @@
 const config = require('../../config.js')
 const store = require('../../store')
 
-const onUserMovesSuccess = function(data)
+const onGetGamesSuccess = function (data) {
+  console.log(data)
+}
 
+const onGetGamesFailure = function () {
+  console.log('didnt work')
+}
+
+const onUserMovesSuccess = function (data) {}
 
 const onCreateSuccess = function (data) {
   $('#message').text('Example successfully created')
@@ -78,5 +85,7 @@ module.exports = {
   onDestroyFailure,
   onUpdateSuccess,
   onUpdateFailure,
-  onUserMovesSuccess
+  onUserMovesSuccess,
+  onGetGamesSuccess,
+  onGetGamesFailure
 }

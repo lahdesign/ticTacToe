@@ -1,68 +1,33 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
-const api = require('./game/api')
-const ui = require('./gameUi')
-const config = require('../../config.js')
-const store = require('../../store')
+const gameApi = require('./gameApi')
+const gameUi = require('./gameUi')
 
-onGameOver
-$('#board').hide()
-$('#userInfo').hide()
+const onGameOver = function () {
+  $('#board').hide()
+  $('#userInfo').hide()
+}
 
-// if (book.id.length !== 0) {
-//   booksApi.update(data)
-//     .then(booksUi.onUpdateSuccess)
-//     .catch(booksUi.onError)
-// } else {
-//   console.log('Please provide a book id!')
-// }
-// }
+const onGetGames = function (event) {
+  console.log('got here')
+  event.preventDefault()
+  gameApi.getGames()
+    .then(gameUi.onGetGamesSuccess)
+    .catch(gameUi.onGetGamesFailure)
+}
 
-// const onCreateExample = function (event) {
-//   event.preventDefault()
-//   console.log('onCreateExample ran!')
-
-//   const data = getFormFields(event.target)
-//   api.create(data)
-//     .then(ui.onCreateSuccess)
-//     .catch(ui.onCreateFailure)
-// }
-
-// const onIndexExamples = function (event) {
-//   event.preventDefault()
-//   console.log('onIndexExamples ran!')
-
-//   api.index()
-//     .then(ui.onIndexSuccess)
-//     .catch(ui.onIndexFailure)
-// }
-
-const onUserMoves = function (gameValues) {
+const onUserMoves = function (gameValues, data) {
   console.log('update moves ran')
-  // const data = game.gameValues
-  api.updateMoves(gameValues, data.isOver)
-    .then(ui.userMovesSuccess)
-    .catch(us.userMovesFailure)
-
+  gameApi.updateMoves(gameValues, data.isOver)
+    .then(gameUi.userMovesSuccess)
+    .catch(gameUi.userMovesFailure)
+}
 // const onDeleteExample = function (event) {
 //   event.preventDefault()
 //   console.log('onDeleteExample ran!')
 
 //   const data = getFormFields(event.target)
 //   const example = data.example
-
-//   if (example.id.length !== 0) {
-//     api.destroy(example.id)
-//       .then(ui.onDeleteSuccess)
-//       .catch(ui.onDeleteFailure)
-//   } else {
-//     $('#message').html('<p>Please provide an example id!</p>')
-//     $('#message').css('background-color', 'red')
-//     console.log('Please provide an example id!')
-//   }
-// }
-
 // const onUpdateExample = function (event) {
 //   event.preventDefault()
 //   console.log('onUpdateExample ran!')
@@ -96,5 +61,8 @@ const onUserMoves = function (gameValues) {
 // }
 
 module.exports = {
-  addHandlers
+  onGetGames,
+  onGameOver,
+  onUserMoves
+
 }

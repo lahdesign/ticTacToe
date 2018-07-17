@@ -31,12 +31,12 @@ const userMoves = function (gameValues, gameOn) {
     }
   })
 }
-const getCompletedGames = function() {
+const getGames = function () {
   return $.ajax({
     url: config.apiUrl + '/games?over=true',
     method: 'GET',
     headers: {
-      "Content-type": 'application/json',
+      'Content-type': 'application/json',
       Authorization: 'Token token=' + store.user.token
     }
   })
@@ -44,28 +44,5 @@ const getCompletedGames = function() {
 
 module.exports = {
   userMoves,
-  getCompletedGames
-}
-
-// module.exports = {
-//   create,
-//   index,
-//   show,
-//   destroy,
-//   update
-// }
-
-// TODO IS this code needed?
-// const ajaxDefaults = {
-//   url: 'http://localhost:4741'
-// }
-// const myRequest = (data) => {
-//   return $.ajax({
-//     method: 'POST',
-//     data: data,
-//     url: ajaxDefaults.url
-//   })
-// }
-module.exports = {
-  userMoves
+  getGames
 }
