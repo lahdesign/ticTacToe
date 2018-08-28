@@ -2,17 +2,8 @@
 const config = require('../../config')
 const store = require('../../store')
 
+// create game had to be moved to its own file because of a strange circular dependency
 
-// const createGame = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: {}
-//   })
-// }
 const userMoves = function (gameValues, gameOn) {
   return $.ajax({
     method: 'PATCH',

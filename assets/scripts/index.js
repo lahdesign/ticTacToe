@@ -1,11 +1,11 @@
 'use strict'
-const getFormFields = require('../../lib/get-form-fields')
+// const getFormFields = require('../../lib/get-form-fields')
 const authEvents = require('./ticTacToe/auth/authEvents')
-const authApi = require('./ticTacToe/auth/authApi')
-const authUi = require('./ticTacToe/auth/authui')
+// const authApi = require('./ticTacToe/auth/authApi')
+// const authUi = require('./ticTacToe/auth/authui')
 const gameEvents = require('../scripts/ticTacToe/game/gameEvents')
-const gameApi = require('../scripts/ticTacToe/game/gameApi')
-const gameUi = require('./ticTacToe/game/gameUi')
+// const gameApi = require('../scripts/ticTacToe/game/gameApi')
+// const gameUi = require('./ticTacToe/game/gameUi')
 const Game = require('./ticTacToe/game')
 const store = require('./store')
 const create = require('../scripts/ticTacToe/game/create')
@@ -21,10 +21,10 @@ $(() => {
   $('.newGame').on('click', function () {
     store.gameInstance = new Game.Game()
     create.createGame()
-    .then(function (data) {
-      store.game = data.game
-    })
-    .catch()
+      .then(function (data) {
+        store.game = data.game
+      })
+      .catch()
     $('#board').show()
   })
 
@@ -32,7 +32,7 @@ $(() => {
     store.gameInstance.claim(event)
     // $("#firstHeading").onClick("click", //GameConstructor)
   })
-// submit since it is a form
+  // submit since it is a form
 
   $('#board').hide()
   $('.xWinsImage').hide()
@@ -44,7 +44,5 @@ $(() => {
   $('#getGames').on('submit', gameEvents.onGetGames)
   $('#change-password').on('submit', authEvents.onchangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
-
-  // gameInstance.playGame()
- //  $('#getGames').on('click', onGetGames)
+  $('#getGames').on('click', gameEvents.onGetGames)
 })

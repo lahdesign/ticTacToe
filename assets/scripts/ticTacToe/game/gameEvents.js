@@ -9,7 +9,6 @@ const onGameOver = function () {
 }
 
 const onGetGames = function (event) {
-  console.log('got here')
   event.preventDefault()
   gameApi.getGames()
     .then(gameUi.onGetGamesSuccess)
