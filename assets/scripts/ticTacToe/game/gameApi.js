@@ -17,7 +17,7 @@ const userMoves = function (gameValues, gameOn) {
           'index': gameValues.i,
           'value': gameValues.v
         },
-        'over': gameOn
+        'over': !gameOn
       }
     }
   })
@@ -27,7 +27,7 @@ const getGames = function () {
     url: config.apiUrl + '/games?over=true',
     method: 'GET',
     headers: {
-      'Content-type': 'application/json',
+      // 'Content-type': 'application/json',
       Authorization: 'Token token=' + store.user.token
     }
   })

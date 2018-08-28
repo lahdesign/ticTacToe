@@ -20,20 +20,18 @@ class Game {
     if (this.playerXTurn) {
       this.gameBoard[event.target.id] = 'x'
       $(event.target).toggleClass('xImage')
-      gameValues.i = event.target.id
-      gameValues.v = this.gameBoard[event.target.id]
-      gameApi.userMoves(gameValues)
     } else {
       this.gameBoard[event.target.id] = 'o'
       $(event.target).toggleClass('oImage')
-      gameValues.i = event.target.id
-      gameValues.v = this.gameBoard[event.target.id]
-      gameApi.userMoves(gameValues)
     }
+    gameValues.i = event.target.id
+    gameValues.v = this.gameBoard[event.target.id]
     this.checkTie()
     this.checkIfWinner()
-    console.log('this is the div id ' + event.target.id)
-    console.log('this is value ' + this.gameBoard[event.target.id])
+    gameApi.userMoves(gameValues, this.gameOn)
+      .then(console.log)
+      .catch(console.log)
+
     // patch function requires 3 args: index, value, gameOn
     // gameAPI.userMoves(index, value, gameOn)
 
