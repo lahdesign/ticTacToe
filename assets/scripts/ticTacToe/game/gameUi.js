@@ -4,6 +4,9 @@ const store = require('../../store')
 
 const onGetGamesSuccess = function (data) {
   console.log(data)
+  for ( let i=0; i < data.games.length; i++) {
+    $('#getAllGames ul').append(`<li>${data.games[i].cells}</li>`)
+  }
 }
 
 const onGetGamesFailure = function () {
