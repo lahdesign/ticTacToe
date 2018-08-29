@@ -16,7 +16,6 @@ const onCreateSuccess = function (data) {
   $('#message').text('Example successfully created')
   $('#message').css('background-color', 'green')
   store.game = data.game
-  console.log('onCreateSuccess ran. Data is :', data)
   $('#board').show()
 }
 
@@ -29,7 +28,6 @@ const onCreateFailure = function (error) {
 const onIndexSuccess = function (data) {
   $('#message').text('All Examples successfully received')
   $('#message').css('background-color', 'green')
-  console.log('onIndexSuccess ran. Data is :', data.examples)
 }
 
 const onIndexFailure = function (error) {
@@ -41,7 +39,6 @@ const onIndexFailure = function (error) {
 const onShowSuccess = function (data) {
   $('#message').text('One Example successfully received')
   $('#message').css('background-color', 'green')
-  console.log('onCreateSuccess ran. Data is :', data)
 }
 
 const onShowFailure = function (error) {
@@ -53,7 +50,6 @@ const onShowFailure = function (error) {
 const onDestroySuccess = function () {
   $('#message').text('Example successfully deleted')
   $('#message').css('background-color', 'green')
-  console.log('Example successfully deleted')
 }
 
 const onDestroyFailure = function (error) {
@@ -65,7 +61,6 @@ const onDestroyFailure = function (error) {
 const onUpdateSuccess = function () {
   $('#message').text('Example successfully updated')
   $('#message').css('background-color', 'green')
-  console.log('Example successfully updated')
 }
 
 const onUpdateFailure = function (error) {
