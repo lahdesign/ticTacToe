@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="stylesheet" type="text/css" href="styles/index.scss">
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1>Tic === Tac === Toe</h1>
+      <h2>Lara's project, in development</h2>
+
+      <div id="message"> </div>
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Create User</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+<!-- // hide until sign up -->
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <!-- <form id="sign-out" class="border">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input type="submit" value="Sign out!">
+        </fieldset>
+      </form> -->
+<!-- // A way to see history
+// total games won by user?
+// End user info
+// Board Game begins -->
+      <table id="board" width='100%'>
+        <tr>
+        <td id="0" class="gameButtons">0</td>
+        <td id="1" class="gameButtons">1</td>
+        <td id="2" class="gameButtons">2</td>
+          </tr>
+        <tr>
+        <td id="3" class="gameButtons">3</td>
+        <td id="4" class="gameButtons">4</td>
+        <td id="5" class="gameButtons">5</td>
+          </tr>
+        <tr>
+        <td id="6" class="gameButtons">6</td>
+        <td id="7" class="gameButtons">7</td>
+        <td id="8" class="gameButtons">8</td>
+          </tr>
+        </table>
+
+
+        <button name="NewGame" type="submit"
+                class="newGame"
+                value="Start a New Game">Start a New Game</button>
+
+   <!-- End of boardgame -->
+
+   <!-- // Winner Alert Screens -->
+   <div class="oWinsImage">
+   <img src="images/oWins.jpg" alt="O wins" height="400" width="400">
+  </div>
+
+   <div class="xWinsImage">
+   <img src="images/xWins.jpg" alt="x wins" height="400" width="400"> Wins !!!!
+   </div>
+
+   <div class="tieImage">
+   <img src="images/tie.jpg" alt="tie" height="400" width="400">
+   </div>
+
+   <button name="NewGame" type="submit"
+   class="newGame"
+   value="Start a New Game">Play Again?</button>
+      </div>
+
+
+   <!-- Start of user info -->
+   <div id = "userInfo">
+
+       <form id="change-password" class="border">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out" class="border">
+          <fieldset>
+            <legend>Sign Out!</legend>
+            <input type="submit" value="Sign out!">
+          </fieldset>
+        </form>
+
+        <button id='getGames'>Game History</button>
+  </div>
+<div id="getAllGames">
+  <ul>
+
+  </ul>
+
+</div>
+   <!-- see history
+   End of user info -->
+
+   <Footer>
+     Made by Lara Henderson
+   </Footer>
+    </body>
+</html>
