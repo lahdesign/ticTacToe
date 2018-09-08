@@ -2,7 +2,8 @@
 
 
 I. Overview
-A tic tac toe game for visual learners. The game features an object constructor function and is suggested for users beginning to understand their usage. The design is minimal & the board responsive. 
+A tic tac toe game for visual learners. The game features an object constructor function and is suggested for users beginning to understand their usage. The design is minimal & the board responsive. The project features a user sign-in system. Once logged in, the user can select to start a new game. At the end of each game, a winner is announced. Users can also see all of their previous games
+
 I am working towards using alpha channels to mimic overprinting, as if you were playing the game with markers in a notebook.
 
 II. Technologies Used
@@ -23,7 +24,7 @@ IV. Process of building
       - Started defining universal variables and how their states would change
       - Ended up refactoring my code to be more object oriented
       - Redrew my entity relationship diagram
-      - Realized I had an array that was smar  ter than I knew what to do with
+      - Realized I had an array that was smarter than I knew what to do with
 V. Updates
 
 
@@ -32,5 +33,4 @@ an object constructor function to build new users
 <a href="images/wirefFrame.jpg">Wire Frame Image</a>
 <a href="images/entityRelationshipDiagram">Entity Relationship Diagram</a>
 
-+I will use moon imagery and feature a very clean and responsive design
-+I would like to use alpha channels to mimic overprinting, as if you were playing the game with markers in a notebook
+I plan on revisiting this piece using moon imagery and feature a very clean and responsive design. Also I would like to use alpha channels to mimic overprinting, as if you were playing the game with markers in a notebook
